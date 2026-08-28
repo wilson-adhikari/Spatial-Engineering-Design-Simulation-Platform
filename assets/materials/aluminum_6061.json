@@ -1,0 +1,1 @@
+{"name":"Aluminum 6061-T6","type":"metal","density":2700,"youngs_modulus":68000,"poisson":0.33,"yield":276,"ultimate":310,"thermal_conductivity":167,"specific_heat":896,"expansion":23e-6,"pbr":{"albedo":[0.82,0.82,0.83],"metallic":0.95,"roughness":0.35,"opacity":1.0}}

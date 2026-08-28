@@ -1,0 +1,24 @@
+# Spatial Default MTL - CC0
+newmtl Default
+Ka 0.2 0.2 0.2
+Kd 0.7 0.7 0.7
+Ks 0.1 0.1 0.1
+Ns 32
+d 1.0
+
+newmtl Steel
+Ka 0.2 0.2 0.22
+Kd 0.65 0.65 0.67
+Ks 0.8 0.8 0.8
+Ns 64
+d 1.0
+
+newmtl Aluminum
+Kd 0.82 0.82 0.83
+Ks 0.9 0.9 0.9
+Ns 80
+
+newmtl Brass
+Kd 0.78 0.61 0.35
+Ks 0.7 0.6 0.3
+Ns 48

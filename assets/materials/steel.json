@@ -1,0 +1,1 @@
+{"name":"Steel S355","type":"metal","density":7850,"youngs_modulus":210000,"poisson":0.3,"yield":355,"ultimate":490,"thermal_conductivity":50,"specific_heat":510,"expansion":12e-6,"pbr":{"albedo":[0.65,0.65,0.67],"metallic":0.9,"roughness":0.45,"opacity":1.0},"source":"original procedural"}

@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "materials": ["steel","aluminum_6061","titanium_ti6al4v","abs","pla","brass_c360","copper_c110","rubber"],
+  "units": {"density":"kg/m3","modulus":"MPa","conductivity":"W/mK"},
+  "license": "CC0 - original procedural data based on engineering handbooks"
+}

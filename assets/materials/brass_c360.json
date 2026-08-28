@@ -1,0 +1,1 @@
+{"name":"Brass C360","type":"metal","density":8500,"youngs_modulus":97000,"poisson":0.34,"yield":124,"ultimate":338,"thermal_conductivity":115,"specific_heat":380,"expansion":20.5e-6,"pbr":{"albedo":[0.78,0.61,0.35],"metallic":0.92,"roughness":0.3,"opacity":1.0}}

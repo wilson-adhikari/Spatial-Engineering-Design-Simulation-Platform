@@ -1,0 +1,1 @@
+{"name":"ABS Plastic","type":"polymer","density":1040,"youngs_modulus":2300,"poisson":0.394,"yield":40,"ultimate":50,"thermal_conductivity":0.18,"specific_heat":1300,"expansion":90e-6,"pbr":{"albedo":[0.92,0.92,0.92],"metallic":0.0,"roughness":0.8,"opacity":1.0}}

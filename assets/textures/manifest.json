@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "textures": [
+    {"name":"checker_256.png","size":[256,256],"format":"PNG","channels":3,"max":8192,"license":"CC0"},
+    {"name":"brushed_metal_256.png","size":[256,256],"format":"PNG","channels":3,"license":"CC0"},
+    {"name":"concrete_256.png","size":[256,256],"format":"PNG","channels":3,"license":"CC0"},
+    {"name":"normal_flat_256.png","size":[256,256],"format":"PNG","channels":3,"license":"CC0"},
+    {"name":"roughness_gradient_256.png","size":[256,256],"format":"PNG","channels":1,"license":"CC0"}
+  ]
+}

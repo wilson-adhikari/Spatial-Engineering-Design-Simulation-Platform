@@ -1,0 +1,1 @@
+{"name":"Copper C110","type":"metal","density":8960,"youngs_modulus":110000,"poisson":0.34,"yield":70,"ultimate":220,"thermal_conductivity":385,"specific_heat":385,"expansion":16.6e-6,"pbr":{"albedo":[0.72,0.4,0.25],"metallic":0.95,"roughness":0.25,"opacity":1.0}}

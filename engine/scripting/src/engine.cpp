@@ -35,9 +35,10 @@ bool ScriptEngine::exec_string(const std::string& c){
  core::Logger::instance().log(core::LogLevel::Info, c.substr(0,256));
  return true;
 }
-void ScriptEngine::register_api(const std::string& name, std::function<void()> fn){
+void ScriptEngine::register_api(const std::string& name, std::function<void()> fn [[maybe_unused]]){
  if(name.empty()||name.size()>128) return;
  if(name.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_")!=std::string::npos) return;
  allowed_apis_.insert(name);
 }
 }
+

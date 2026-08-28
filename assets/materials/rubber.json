@@ -1,0 +1,1 @@
+{"name":"Rubber EPDM","type":"elastomer","density":1100,"youngs_modulus":10,"poisson":0.49,"yield":8,"ultimate":15,"thermal_conductivity":0.25,"specific_heat":1500,"expansion":160e-6,"pbr":{"albedo":[0.08,0.08,0.08],"metallic":0.0,"roughness":0.95,"opacity":1.0}}

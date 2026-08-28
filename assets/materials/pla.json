@@ -1,0 +1,1 @@
+{"name":"PLA","type":"polymer","density":1240,"youngs_modulus":3500,"poisson":0.36,"yield":60,"ultimate":65,"thermal_conductivity":0.13,"specific_heat":1800,"expansion":70e-6,"pbr":{"albedo":[0.95,0.95,0.92],"metallic":0.0,"roughness":0.75,"opacity":1.0}}

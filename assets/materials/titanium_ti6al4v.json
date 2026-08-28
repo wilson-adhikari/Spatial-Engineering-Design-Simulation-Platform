@@ -1,0 +1,1 @@
+{"name":"Titanium Ti-6Al-4V","type":"metal","density":4430,"youngs_modulus":114000,"poisson":0.342,"yield":880,"ultimate":950,"thermal_conductivity":6.7,"specific_heat":526,"expansion":8.6e-6,"pbr":{"albedo":[0.7,0.68,0.65],"metallic":0.85,"roughness":0.5,"opacity":1.0}}
