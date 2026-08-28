@@ -1,0 +1,3 @@
+add_executable(spatial_tests_integration test_pipeline.cpp)
+target_link_libraries(spatial_tests_integration PRIVATE spatial_cad spatial_scene spatial_rendering spatial_io)
+add_test(NAME integration COMMAND spatial_tests_integration)

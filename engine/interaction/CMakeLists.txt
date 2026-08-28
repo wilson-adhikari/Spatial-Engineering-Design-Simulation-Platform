@@ -1,0 +1,3 @@
+add_library(spatial_interaction STATIC src/gesture.cpp src/input.cpp)
+target_include_directories(spatial_interaction PUBLIC include)
+target_link_libraries(spatial_interaction PUBLIC spatial_core spatial_math)

@@ -1,0 +1,2 @@
+add_library(spatial_plugin_sdk INTERFACE)
+target_include_directories(spatial_plugin_sdk INTERFACE include)

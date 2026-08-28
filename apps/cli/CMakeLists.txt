@@ -1,0 +1,2 @@
+add_executable(spatial_cli src/main.cpp)
+target_link_libraries(spatial_cli PRIVATE spatial_core spatial_cad spatial_io spatial_simulation)

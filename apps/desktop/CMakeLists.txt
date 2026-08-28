@@ -1,0 +1,2 @@
+add_executable(spatial_desktop src/main.cpp)
+target_link_libraries(spatial_desktop PRIVATE spatial_ui spatial_viewport spatial_cad spatial_io spatial_scripting)

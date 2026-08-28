@@ -1,0 +1,3 @@
+add_library(spatial_viewport STATIC src/viewport.cpp src/camera_controller.cpp src/selection.cpp)
+target_include_directories(spatial_viewport PUBLIC include)
+target_link_libraries(spatial_viewport PUBLIC spatial_scene spatial_rendering spatial_core)
