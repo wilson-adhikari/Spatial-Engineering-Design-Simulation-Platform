@@ -1,6 +1,10 @@
 import { Card, CardHeader, CardContent } from "./ui/card"
 import { Separator } from "./ui/separator"
 import { Box, Layers, Component } from "lucide-react"
+function sanitizeId(id: string): string {
+  if (!id || id.length > 128) return ""
+  return id.replace(/[^a-zA-Z0-9_\-\.]/g, "")
+}
 export function ModelTree({ onSelect }: { onSelect?: (id:string)=>void }){
   const items = [
     { id:"part1", name:"Robot_Arm.part", icon: Box, count: 3 },
@@ -13,7 +17,7 @@ export function ModelTree({ onSelect }: { onSelect?: (id:string)=>void }){
       <Separator />
       <CardContent className="flex-1 p-2 space-y-1 overflow-auto">
         {items.map(it=>(
-          <div key={it.id} onClick={()=>onSelect?.(it.id)} className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 cursor-pointer text-sm">
+          <div key={sanitizeId(it.id)} onClick={()=>onSelect?.(sanitizeId(it.id))} className="flex items-center gap-2 px-2 py-1.5 rounded hover:bg-zinc-100 cursor-pointer text-sm">
             <it.icon size={16} className="text-zinc-500" /> {it.name} <span className="ml-auto text-xs text-zinc-400">{it.count}</span>
           </div>
         ))}

@@ -6,11 +6,27 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+if(MSVC)
+  add_compile_options(/W4 /permissive- /guard:cf /sdl)
+  add_link_options(/DYNAMICBASE /NXCOMPAT /GUARD:CF)
+else()
+  add_compile_options(-Wall -Wextra -Wpedantic -Werror=return-type)
+  add_compile_options(-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fPIE)
+  add_compile_options(-Wformat -Wformat-security)
+endif()
+
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
+
 option(SPATIAL_BUILD_TESTS "Build tests" ON)
 option(SPATIAL_BUILD_PYTHON "Build Python bindings" ON)
 option(SPATIAL_BUILD_APPS "Build apps" ON)
+option(SPATIAL_ENABLE_SANITIZERS "Enable ASan/UBSan in Debug" OFF)
 
-include(FetchContent)
+if(SPATIAL_ENABLE_SANITIZERS AND CMAKE_BUILD_TYPE STREQUAL "Debug" AND NOT MSVC)
+  add_compile_options(-fsanitize=address,undefined -fno-omit-frame-pointer)
+  add_link_options(-fsanitize=address,undefined)
+endif()
 
 if(SPATIAL_BUILD_TESTS)
   enable_testing()

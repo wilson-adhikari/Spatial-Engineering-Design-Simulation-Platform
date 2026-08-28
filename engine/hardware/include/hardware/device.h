@@ -1,9 +1,10 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <mutex>
 namespace spatial::hardware{
 enum class DeviceClass{Camera,Display,Sensor,Controller,IMU,Haptic,Tracking,Custom};
-struct DeviceInfo{ std::string id,name; DeviceClass cls; bool connected=false;};
+struct DeviceInfo{ std::string id,name; DeviceClass cls; bool connected=false; bool requires_permission=true; };
 class Device{
 public:
  virtual ~Device()=default;
@@ -11,13 +12,17 @@ public:
  virtual bool connect()=0;
  virtual void disconnect()=0;
  virtual bool is_connected() const =0;
+ virtual bool has_permission() const { return true; }
 };
 class DeviceManager{
 public:
  static DeviceManager& instance();
- void register_device(DeviceInfo i){ devices_.push_back(i);}
- std::vector<DeviceInfo> list() const {return devices_;}
+ bool request_permission(const std::string& id);
+ void register_device(DeviceInfo i);
+ std::vector<DeviceInfo> list() const;
+ bool connect_device(const std::string& id);
 private:
+ mutable std::mutex mutex_;
  std::vector<DeviceInfo> devices_;
 };
 }

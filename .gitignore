@@ -21,3 +21,14 @@ compile_commands.json
 *.part
 *.sim
 *.spatial
+*.autosave
+.env
+.env.*
+*.key
+*.pem
+*.p12
+secrets/
+dist/
+node_modules/
+frontend/dist/
+
