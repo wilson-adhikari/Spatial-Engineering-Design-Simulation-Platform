@@ -12,7 +12,9 @@ public:
  math::Transform local;
  std::weak_ptr<Node> parent;
  std::vector<std::shared_ptr<Node>> children;
- void add_child(std::shared_ptr<Node> c){ c->parent=shared_from_this(); children.push_back(c);}
+ static constexpr size_t MAX_CHILDREN = 10000;
+ bool add_child(std::shared_ptr<Node> c);
+ bool set_name(const std::string& n);
  math::Mat4 world_matrix() const;
  math::Transform world_transform() const;
 };
