@@ -1,7 +1,6 @@
 build/
 out/
 *.o
-*.obj
 *.a
 *.lib
 *.so
@@ -20,7 +19,6 @@ compile_commands.json
 .DS_Store
 *.part
 *.sim
-*.spatial
 *.autosave
 .env
 .env.*
@@ -32,3 +30,7 @@ dist/
 node_modules/
 frontend/dist/
 
+# Allow assets despite generic ignores
+!assets/**/*.obj
+!assets/**/*.spatial
+!assets/**/*.stl
