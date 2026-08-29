@@ -34,3 +34,5 @@ frontend/dist/
 !assets/**/*.obj
 !assets/**/*.spatial
 !assets/**/*.stl
+test-results/
+playwright-report/

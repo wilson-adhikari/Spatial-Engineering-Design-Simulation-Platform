@@ -1,0 +1,10 @@
+name: Feature request
+description: Request a feature
+labels: [enhancement]
+body:
+  - type: textarea
+    id: why
+    attributes: { label: "Why?", placeholder: "As engineer I want sweep..." }
+  - type: textarea
+    id: design
+    attributes: { label: "Design", placeholder: "API sketch: part.sweep(...)" }

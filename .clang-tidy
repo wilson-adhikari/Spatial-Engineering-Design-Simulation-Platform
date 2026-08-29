@@ -1,0 +1,3 @@
+Checks: "-*,clang-analyzer-*,modernize-*,performance-*,bugprone-*,security-*"
+WarningsAsErrors: "bugprone-*,security-*"
+

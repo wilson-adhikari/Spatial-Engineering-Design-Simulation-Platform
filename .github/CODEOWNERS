@@ -1,0 +1,3 @@
+* @spatial-team
+/engine/ @spatial-core
+/apps/desktop/frontend/ @spatial-ui

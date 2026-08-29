@@ -1,0 +1,14 @@
+name: Bug report
+description: File a bug
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: "What happened?", placeholder: "Model tree crashes on .." }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes: { label: "Repro steps", placeholder: "1. Open box.stl\n2. Click extrude 1e9" }
+  - type: input
+    id: version
+    attributes: { label: "Version", placeholder: "v0.3.0, commit a30a10a" }
