@@ -1,0 +1,12 @@
+{
+  "name": "Spatial Engine",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/cmake:1": { "version": "3.29" }
+  },
+  "customizations": { "vscode": { "extensions": ["ms-vscode.cpptools","dbaeumer.vscode-eslint","esbenp.prettier-vscode"] } },
+  "postCreateCommand": "scripts/bootstrap.sh",
+  "forwardPorts": [5173, 4173],
+  "remoteUser": "vscode"
+}

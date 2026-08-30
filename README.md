@@ -4,6 +4,34 @@ Cross-platform C++ engineering platform — CAD, simulation, 3D visualization, r
 
 > **Software is the platform. Future hardware is the interface.**
 
+## Quick Start (fresh clone)
+
+```bash
+# One-command bootstrap (C++ + frontend + tests)
+./scripts/bootstrap.sh          # Linux/macOS
+# or
+scripts\bootstrap.bat           # Windows
+
+# Or manually (cross-platform)
+cmake -S . -B build -G Ninja   # or -G "MinGW Makefiles" on Windows
+cmake --build build
+ctest --test-dir build --output-on-failure
+
+cd apps/desktop/frontend
+npm ci --legacy-peer-deps
+npm run build
+npm test                        # vitest 39 + playwright 13+11
+```
+
+## Docker / Devcontainer (reproducible)
+
+```bash
+docker build -t spatial .
+docker run -it -p 5173:5173 spatial
+
+# VS Code: Reopen in Container (uses .devcontainer/devcontainer.json)
+```
+
 ## Architecture
 ```
 Application UI / Spatial UI -> Command System -> Engineering Core (CAD/Math/Scene/Simulation) -> Rendering Engine -> Hardware Abstraction
@@ -24,17 +52,6 @@ Location: `apps/desktop/frontend/` — see its README for `npm install` / `npx s
 
 Features: Model Tree + Feature History, Viewport with tools/selection/grid, Properties (Transform/Material/Simulation/Python), Workspaces per §8.
 
-## Build (C++ Core)
-
-```bash
-cmake --preset dev
-cmake --build build/dev
-ctest --test-dir build/dev
-# Windows MinGW:
-& "C:\cmake-3.29.3-windows-x86_64\bin\cmake.exe" -S . -B build/test -G "MinGW Makefiles"
-& "C:\cmake-3.29.3-windows-x86_64\bin\cmake.exe" --build build/test
-```
-
 ## Python
 
 ```python
@@ -50,3 +67,8 @@ project.save("robot_arm.part")
 ## Structure
 See `docs/ARCHITECTURE.md` — engine/core, math, geometry, cad, scene, rendering, simulation, robotics, interaction, vision, hardware, io, scripting
 
+## Coverage
+`vitest --coverage` (threshold 60%) + `ctest` + `gcov/lcov` for C++ — gated in CI
+
+## Env
+Copy `.env.example` → `.env` (never commit secrets)
