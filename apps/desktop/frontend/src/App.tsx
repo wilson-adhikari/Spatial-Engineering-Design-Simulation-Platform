@@ -5,6 +5,8 @@ import { PropertiesPanel } from "./components/PropertiesPanel"
 import { StatusBar } from "./components/StatusBar"
 import { Button } from "./components/ui/button"
 import { Separator } from "./components/ui/separator"
+import { ErrorBoundary } from "./components/ErrorBoundary"
+import { logger } from "./lib/logger"
 import { Box, Cpu, Layers, Play, Save, Undo2, Redo2, Settings, Beaker, Bot, Cuboid, Menu, PanelLeft, PanelRight, X } from "lucide-react"
 
 const workspaces = [
@@ -23,14 +25,23 @@ export default function App(){
   const [showRight, setShowRight] = useState(false)
   const [mobileMenu, setMobileMenu] = useState(false)
   const safeSetWs = (id: string) => {
-    if(!ALLOWED_WS.has(id)) return
+    if(!ALLOWED_WS.has(id)){
+      logger.warn('Invalid workspace', { id })
+      return
+    }
+    logger.info('Workspace switch', { from: ws, to: id })
     setWs(id as WsId)
   }
   const safeSetMode = (m: string) => {
-    if(!ALLOWED_MODES.has(m)) return
+    if(!ALLOWED_MODES.has(m)){
+      logger.warn('Invalid mode', { mode: m })
+      return
+    }
+    logger.info('Mode switch', { mode: m })
     setMode(m)
   }
   return (
+    <ErrorBoundary>
     <div className="h-screen flex flex-col bg-white text-zinc-900 overflow-hidden">
       {/* Header — responsive */}
       <div className="h-9 border-b flex items-center px-2 gap-1 bg-white shrink-0">
@@ -114,5 +125,6 @@ export default function App(){
         )}
       </div>
     </div>
+    </ErrorBoundary>
   )
 }
