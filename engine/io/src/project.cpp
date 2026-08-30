@@ -52,3 +52,4 @@ void Project::autosave(){
  try{ save(path+".autosave"); } catch(...){}
 }
 }
+
