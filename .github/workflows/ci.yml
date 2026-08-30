@@ -13,7 +13,7 @@ jobs:
         build_type: [Debug, Release]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Setup CMake
         uses: jwlawson/actions-setup-cmake@v2
         with: { cmake-version: '3.29.3' }
@@ -30,7 +30,7 @@ jobs:
   cpp-coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: sudo apt-get update && sudo apt-get install -y lcov
       - run: cmake -S . -B build-coverage -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="--coverage -O0" -DSPATIAL_BUILD_TESTS=ON
       - run: cmake --build build-coverage
@@ -44,7 +44,7 @@ jobs:
   frontend:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with: { node-version: '20.18.1', cache: 'npm', cache-dependency-path: apps/desktop/frontend/package-lock.json }
       - run: npm ci --prefix apps/desktop/frontend --legacy-peer-deps
@@ -63,7 +63,7 @@ jobs:
   static-analysis:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: clang-tidy --version || true
       - run: clang-tidy engine/**/*.cpp --checks='*,-fuchsia*' --warnings-as-errors='*' || true
       - run: clang-format --dry-run --Werror --style=file engine/**/*.cpp engine/**/*.h || true
@@ -74,7 +74,7 @@ jobs:
   dependency-scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: github/super-linter@v6
       - uses: anchore/sbom-action@v0
       - run: npm audit --prefix apps/desktop/frontend
@@ -84,7 +84,7 @@ jobs:
     needs: [cpp, frontend]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: cmake --preset release && cmake --build build/release && ctest --test-dir build/release
       - run: npm --prefix apps/desktop/frontend run build
       - uses: softprops/action-gh-release@v2
