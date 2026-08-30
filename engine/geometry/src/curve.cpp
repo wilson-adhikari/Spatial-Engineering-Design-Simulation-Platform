@@ -16,7 +16,8 @@ math::Vec3 Arc::derivative(double t) const{
  return {-radius*sin(a)*s,radius*cos(a)*s,0};}
 math::Vec3 Spline::point(double t) const{
  if(!std::isfinite(t)) throw std::invalid_argument("t non-finite");
- if(points.empty()) return {}; if(points.size()==1) return points[0];
+ if(points.empty()) return {};
+ if(points.size()==1) return points[0];
  if(points.size()>10000) throw std::runtime_error("too many points");
  for(auto& p: points) if(!p.is_finite()) throw std::invalid_argument("point non-finite");
  double scaled=t*(points.size()-1); int i=(int)scaled; if(i>= (int)points.size()-1) return points.back();

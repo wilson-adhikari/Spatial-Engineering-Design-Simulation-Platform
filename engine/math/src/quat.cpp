@@ -15,7 +15,8 @@ Quat Quat::normalized() const{
 Quat Quat::operator*(Quat o) const{
  return {w*o.x+x*o.w+y*o.z-z*o.y, w*o.y-x*o.z+y*o.w+z*o.x, w*o.z+x*o.y-y*o.x+z*o.w, w*o.w-x*o.x-y*o.y-z*o.z};}
 Quat Quat::slerp(Quat o,double t) const{
- if(t<0) t=0; if(t>1) t=1;
+ if(t<0) t=0;
+ if(t>1) t=1;
  double dot=x*o.x+y*o.y+z*o.z+w*o.w; if(dot<0){o={-o.x,-o.y,-o.z,-o.w}; dot=-dot;}
  if(dot>0.9995) return {(1-t)*x+t*o.x,(1-t)*y+t*o.y,(1-t)*z+t*o.z,(1-t)*w+t*o.w};
  double dotc=std::clamp(dot,-1.0,1.0);
