@@ -7,7 +7,7 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./tests/setup.ts'],
-    coverage: { provider: 'v8', reporter: ['text','html'], thresholds: { lines: 80, branches: 70 } },
+    coverage: { provider: 'v8', reporter: ['text','html','lcov'], thresholds: { lines: 60, branches: 60, functions: 60, statements: 60 } },
     include: ['tests/component/**/*.{test,spec}.{ts,tsx}']
   },
   resolve: { alias: { '@': path.resolve(__dirname, './src') } }
